@@ -125,7 +125,7 @@ def menu_pembersih():
 #atika
 def login():
     while True:
-        print("\n=== LOGIN (ketik 'exit' untuk keluar) ===")
+        print("\n=== LOGIN (ketik 'exit' untuk keluar) atika edit ===")
         username = input("Username: ").strip()
         if username.lower() == "exit":
             return None, None
