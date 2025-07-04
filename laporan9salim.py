@@ -122,10 +122,10 @@ def menu_pembersih():
             print("Pilihan tidak valid.")
 
 # === LOGIN ===
-#atika
 def login():
-    while True:
-        print("\n=== LOGIN (ketik 'exit' untuk keluar) atika edit ===")
+    attempts = 0
+    while attempts < 3:
+        print("\n=== LOGIN (ketik 'exit' untuk keluar)===")
         username = input("Username: ").strip()
         if username.lower() == "exit":
             return None, None
@@ -135,14 +135,23 @@ def login():
             return None, None
 
         if not username or not password:
-            print("Login gagal, silakan login ulang.")
-        elif username in users and users[username]["password"] == password:
+            print("Username dan password tidak boleh kosong.")
+        elif username not in users:
+            if any(u["password"] == password for u in users.values()):
+                print("Username salah, password benar.")
+            else:
+                print("Username dan password tidak ditemukan.")
+        elif users[username]["password"] != password:
+            print("Username benar, password salah.")
+        else:
             print(f"Login berhasil sebagai {users[username]['role']}.")
             return username, users[username]["role"]
-        else:
-            print("Login gagal, silakan login ulang.")
 
+        attempts += 1
+        print(f"Sisa percobaan: {3 - attempts}")
 
+    print("Gagal login 3 kali. Akses diblokir.")
+    return None, None
 # === MAIN ===
 if __name__ == "__main__":
     while True:
