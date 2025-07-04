@@ -31,10 +31,14 @@ def ubah_status_kamar(role, status_baru, username=None):
     try:
         kamar = int(input(f"Masukkan nomor kamar yang ingin di buka: "))
         if kamar in kamar_status:
+            if kamar_status[kamar]["status"] == status_baru:
+                print(f"Kamar sudah dalam status {status_baru}, tidak perlu diubah.")
+                return
             if (role == "user" and kamar_status[kamar]["akses_penghuni"] == username) or \
                (role == "pembersih" and kamar_status[kamar]["akses_pembersih"]):
                 kamar_status[kamar]["status"] = status_baru
                 print(f"Kamar {kamar} berhasil {status_baru}.")
+                print(f"[LOG] {username} mengubah status kamar {kamar} menjadi {status_baru}.")
             else:
                 print("Anda tidak memiliki akses.")
         else:
