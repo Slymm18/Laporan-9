@@ -107,10 +107,7 @@ def menu_penghuni(username):
 def menu_pembersih():
     while True:
         print("\n=== MENU PEMBERSIH ===")
-        print("1. Lihat Kamar yang Bisa Dibersihkan")
-        print("2. Buka Kamar")
-        print("3. Kunci Kamar")
-        print("4. Logout")
+        print("1. Lihat Kamar yang Bisa Dibersihkan\n2. Buka Kamar\n3. Kunci Kamar\n4. Logout")
         pilih = input("Pilih: ")
         if pilih == "1":
             tampilkan_kamar("pembersih")
