@@ -93,9 +93,7 @@ def menu_penghuni(username):
     tampilkan_kamar("user", username)
     while True:
         print(f"\n=== MENU PENGHUNI ({username}) ===")
-        print("1. Buka Kamar")
-        print("2. Kunci Kamar")
-        print("3. Logout")
+        print("1. Buka Kamar\n2. Kunci Kamar\n3. Logout")
         pilih = input("Pilih: ")
         if pilih == "1":
             ubah_status_kamar("user", "terbuka", username)
